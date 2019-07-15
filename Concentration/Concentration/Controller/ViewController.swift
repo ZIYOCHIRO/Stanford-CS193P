@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 
     lazy var game = ConcentrationRule(numberOfPairsOfCards: (flipCards.count + 1) / 2 )
     
-    
     @IBOutlet weak var flipCountLabel: UILabel!
     @IBOutlet var flipCards: [UIButton]!
     var flipCount = 0 {
@@ -49,6 +48,13 @@ class ViewController: UIViewController {
                 button.backgroundColor = card.isMatched ? UIColor.clear : UIColor.orange
             }
         }
+        
+       
+        let x: (word: String, number: Int, value: Double) =  ("hello", 5, 0.85)
+        print(x.word)
+        print(x.number)
+        print(x.value)
+
     }
     
     var emojiCollection = ["👻","🎃","🍕","🍞","🧀","🍔","🥪","🌭","🌮"]
