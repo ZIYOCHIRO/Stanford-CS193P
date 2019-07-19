@@ -16,6 +16,17 @@ class ConcentrationRule {
         get {
             // look at all cards and see if you find only one that's faced up
             // if so, return it, else return nil
+            
+            return cards.indices.filter { cards[$0].isFacedUp }.oneAndOnly
+            
+            /* solution 2
+             let faceUpIndex = cards.indices.filter { cards[$0].isFacedUp }
+             return faceUpIndex.count == 1 ? faceUpIndex.first : nil
+             */
+            
+            
+            
+            /* solution 1
             var foundIndex: Int?
             for index in cards.indices {
                 if cards[index].isFacedUp {
@@ -27,6 +38,8 @@ class ConcentrationRule {
                 }
             }
             return foundIndex
+ 
+            */
         }
         set(newVaule) {
             //  case either no cards or two cards
@@ -74,4 +87,10 @@ class ConcentrationRule {
     }
     
     
+}
+
+extension Collection {
+    var oneAndOnly: Element? {
+        return count == 1 ? first : nil
+    }
 }

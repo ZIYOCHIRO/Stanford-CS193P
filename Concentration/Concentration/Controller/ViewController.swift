@@ -20,12 +20,26 @@ class ViewController: UIViewController {
         // or just return (flipCards.count + 1) / 2
     }
     
-    @IBOutlet private weak var flipCountLabel: UILabel!
+    @IBOutlet private weak var flipCountLabel: UILabel! {
+        didSet {
+            updateFlipCountLabel()
+        }
+    }
     @IBOutlet private var flipCards: [UIButton]!
     private var flipCount = 0 {
         didSet {
-            flipCountLabel.text = "FlipCount: \(flipCount)"
+            updateFlipCountLabel()
         }
+    }
+    
+    
+    func updateFlipCountLabel() {
+        let attributes: [NSAttributedString.Key: Any] = [
+            .strokeColor: UIColor.orange,
+            .strokeWidth: 5.0
+        ]
+        let attribText = NSAttributedString(string: "FlipCount: \(flipCount)", attributes: attributes)
+        flipCountLabel.attributedText = attribText
     }
     
     override func viewDidLoad() {
