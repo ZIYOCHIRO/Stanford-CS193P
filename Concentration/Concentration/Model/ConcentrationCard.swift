@@ -15,9 +15,9 @@ struct Card {
     var isMatched: Bool = false
     var identifier: Int
     
-    static var cardIdentifier: Int = 0
+    private static var cardIdentifier: Int = 0
     
-    static func getCardIdentifier() -> Int {
+    private static func getCardIdentifier() -> Int {
         cardIdentifier += 1
         return Card.cardIdentifier
         
